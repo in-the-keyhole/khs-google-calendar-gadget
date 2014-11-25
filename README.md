@@ -43,7 +43,7 @@ The GET and PUT attendees calls give/take only the ID's of the attendees, like s
     "1234"
 ]
 
-The Front
+The Front End
 ======================
 Transfer the contents of "gadget" to a publicly available web site.  An intranet or local web URL will not suffice.
 
