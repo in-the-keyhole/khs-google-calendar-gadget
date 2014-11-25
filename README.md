@@ -1,4 +1,4 @@
-google-calendar-gadget
+khs-google-calendar-gadget
 ======================
 
 A Google calendar sidebar gadget in Angular.js with a Java Jersey RESTful back end.
@@ -49,9 +49,9 @@ Transfer the contents of "gadget" to a publicly available web site.  An intranet
 
 After logging in to Google, load the gadget like so:
 
-https://www.google.com/calendar/render?gadgeturl=http://206.190.137.149/gadgets/eventGadget.xml
+https://www.google.com/calendar/render?gadgeturl=http://yoursite.com/gadgets/eventGadget.xml
 
 Google gadgets are cache-happy.  In order to see changes to the gadget after you publish them to your web server, you must remove the gadget (via the X in the upper right) and reload it, each time with a unique query param to invalidate the cache.  Like so:
 
-https://www.google.com/calendar/render?gadgeturl=http://206.190.137.149/gadgets/eventGadget.xml&foo=bar
+https://www.google.com/calendar/render?gadgeturl=http://yoursite.com/gadgets/eventGadget.xml&foo=bar
 
