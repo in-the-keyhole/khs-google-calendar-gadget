@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<Module>
+  <ModulePrefs title="Super Fancy Crafts Check-in Service">
+	<Require feature="google.calendar-0.5.read"/> 
+	<Require feature="settitle"/>
+	<Require feature="minimessage"/>
+	<Require feature="dynamic-height"/>
+  </ModulePrefs>
+  <Content type="html">
+     <![CDATA[
+         <head>
+           <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+           <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular-animate.js"></script>
+           <link rel="stylesheet" type="text/css" href='http://fonts.googleapis.com/css?family=Amatic+SC:700'>
+           <link rel="stylesheet" type="text/css" href="http://yoursite.com/gadget/craft/gadget_style.css">
+         </head>
+         <body class="body">
+           <div ng-init="init" ng-app="EventApp" ng-controller="EventController"> 
+           <div class="title">
+             Super Fancy Crafts
+           </div>
+           <div class="container show-hide-animation" id="container" ng-show="showEvent">
+             <div class="eventName">
+               <span ng-bind="eventName"/><br><br>
+             </div>
+             <div class="eventInfo">
+               Instructor: <span ng-bind="eventInstructor"/><br>
+             </div>
+             <div>
+               <label ng-repeat="attendee in attendees | orderBy:'lastName'">
+                 <div class="row">
+                   <span>
+                     <input id="{{ attendee.id }}"
+                     ng-model="attendee.isChecked"
+                     type="checkbox"
+                     ng-change="markAttendeesDirty()">
+                   </span>
+                   <span>
+                     {{ attendee.lastName + ', ' + attendee.firstName }}
+                   </span>
+                 </div>
+               </label>
+             </div>
+             <div>
+               <input type="button" ng-click="checkInToEvent()" value="Check in" class="button" ng-disabled="attendeesClean">
+             </div>
+           </div>
+           <div ng-if="errorMessage" class="error animate-if" width="150">
+               <span ng-bind="errorMessage" /><br><br>
+           </div>
+           <div ng-if="successMessage" class="success animate-if" width="150">
+               <span ng-bind="successMessage" /><br><br>
+           </div>
+         </div>
+         <script src="http://yoursite.com/gadget/eventApp.js"></script>
+         <script src="http://yoursite.com/gadget/eventFactory.js"></script>
+         <script src="http://yoursite.com/gadget/eventController.js"></script>
+       </body>
+     ]]>
+  </Content> 
+</Module>
