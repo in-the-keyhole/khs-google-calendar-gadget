@@ -8,7 +8,7 @@ The Back End
 I used Apache Maven 3.0.4 (local), Java 1.7.0_55 x64 (local), and Tomcat 8.0.9 (docker container)
 
 <h3>Spinning up Tomcat in a Docker Container</h3>
-If you wish to run tomcat inside docker like I did, run the following:
+Docker is not required, and not particularly recommended for Windows users.  If you wish to run tomcat inside docker like I did, run the following:
 
 ```docker run -d -i -t -v=/localpath/khs-google-calendar-gadget/attendance-api/deploy:/opt/tomcat/webapps -v=/localpath/khs-google-calendar-gadget/attendance-api/logs:/opt/tomcat/logs -p 8080:8080 imageID```
 
@@ -49,9 +49,9 @@ Transfer the contents of "gadget" to a publicly available web site.  An intranet
 
 After logging in to Google, load the gadget like so:
 
-https://www.google.com/calendar/render?gadgeturl=http://yoursite.com/gadgets/eventGadget.xml
+https://www.google.com/calendar/render?gadgeturl=http://yoursite.com/gadget/eventGadget.xml
 
-Google gadgets are cache-happy.  In order to see changes to the gadget after you publish them to your web server, you must remove the gadget (via the X in the upper right) and reload it, each time with a unique query param to invalidate the cache.  Like so:
+Google gadgets are cached for an hour.  In order to see changes to the gadget after you publish them to your web server, you must remove the gadget (via the X in the upper right) and reload it, each time with a unique query param to invalidate the cache.  Like so:
 
-https://www.google.com/calendar/render?gadgeturl=http://yoursite.com/gadgets/eventGadget.xml&foo=bar
+https://www.google.com/calendar/render?gadgeturl=http://yoursite.com/gadget/eventGadget.xml&1234
 
